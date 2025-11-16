@@ -33,7 +33,7 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
-  scrollBehavior(to, from, savedPosition) {
+  scrollBehavior(to, _from, savedPosition) {
     // Si vienes de “atrás” (back/forward), respeta la posición
     if (savedPosition) {
       return savedPosition;

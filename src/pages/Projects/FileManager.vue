@@ -280,7 +280,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, onUnmounted } from 'vue';
+import { defineComponent, onMounted } from 'vue';
 
 export default defineComponent({
   name: 'ElfinderProject',
@@ -337,7 +337,6 @@ export default defineComponent({
       const anime = (window as any).anime;
       const shapes = document.querySelectorAll<HTMLElement>('.shape');
       let currentSpeed = 1;
-      let targetSpeed = 1;
       let scrollTimeout: number;
 
       // Inicializar posiciones aleatorias de cada forma
@@ -371,13 +370,11 @@ export default defineComponent({
 
       // Detectar scroll
       window.addEventListener('scroll', () => {
-        targetSpeed = 3;
         currentSpeed = 3;
 
         clearTimeout(scrollTimeout);
 
         scrollTimeout = window.setTimeout(() => {
-          targetSpeed = 1;
           currentSpeed = 1;
         }, 150);
       });

@@ -401,7 +401,6 @@ export default defineComponent({
         opacity,
       };
     }
-
     onMounted(() => {
       // Limpiar estilos del body que puedan venir de otras páginas
       document.body.style.position = '';
@@ -418,7 +417,6 @@ export default defineComponent({
       const anime = (window as any).anime;
       const shapes = document.querySelectorAll<HTMLElement>('.shape');
       let currentSpeed = 1;
-      let targetSpeed = 1;
       let scrollTimeout: number;
 
       // Inicializar posiciones aleatorias de cada forma
@@ -452,13 +450,11 @@ export default defineComponent({
 
       // Detectar scroll
       window.addEventListener('scroll', () => {
-        targetSpeed = 3;
         currentSpeed = 3;
 
         clearTimeout(scrollTimeout);
 
         scrollTimeout = window.setTimeout(() => {
-          targetSpeed = 1;
           currentSpeed = 1;
         }, 150);
       });
